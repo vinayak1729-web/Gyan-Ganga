@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gnyan Vidya - Begin Your Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yakta:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #E67E22; /* Slightly Desaturated Primary */
+            --secondary: #F39C12; /* More Golden Secondary */
+            --accent: #FDEBD0; /* Softer Accent Color */
+            --background: #f8f8fa; /* Very Light Grey Background */
+            --text-dark: #4a4a4a; /* Dark Grey Text */
+            --text-light: #8e8e8e; /* Light Grey Text */
+            --shadow-dark: rgba(0, 0, 0, 0.1); /* Softer Dark Shadow */
+            --shadow-light: rgba(255, 255, 255, 0.8); /* Brighter Light Shadow */
+            --card-bg: rgba(255, 255, 255, 0.9); /* Slightly transparent card background */
+        }
+
+        body {
+            background-color: var(--background);
+            font-family: 'Yakta', sans-serif;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48' fill='none' stroke='%23F39C12' stroke-opacity='0.5'%3E%3Cpath d='M24 4L4 24L24 44L44 24Z' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M24 12L12 24L24 36L36 24' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E"); /* Refined Background Art */
+            background-size: 90px; /* Smaller pattern size */
+            background-repeat: repeat;
+        }
+
+        .sacred-card {
+            background: var(--card-bg); /* Use card background variable */
+            border-radius: 24px; /* Slightly more rounded corners */
+            padding: 2.5rem 3.5rem; /* Increased padding for spaciousness */
+            width: 100%;
+            max-width: 520px; /* Slightly wider card */
+            box-shadow:
+                8px 8px 16px var(--shadow-dark), /* More pronounced shadow */
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .om-symbol {
+            font-family: 'Yatra One', cursive;
+            font-size: 5rem; /* Slightly larger Om */
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s infinite;
+            margin-bottom: 0.75rem; /* Increased spacing below Om */
+            display: block;
+            text-align: center;
+        }
+
+        .ganesha-slok {
+            font-family: 'Yatra One', cursive;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 1.05rem; /* Slightly larger Shloka text */
+            font-weight: 500; /* Slightly lighter font weight */
+            color: var(--text-dark);
+            background: var(--card-bg); /* Use card background for slok */
+            padding: 1rem 2rem; /* Increased padding for slok */
+            border-radius: 12px; /* More rounded corners for slok */
+            box-shadow:
+                5px 5px 10px var(--shadow-dark),
+                -5px -5px 10px var(--shadow-light);
+            z-index: 10;
+            margin-bottom: 6rem; /* Further increased gap below shloka */
+        }
+
+        .ganesha-slok h1 {
+            font-family: 'Yatra One', cursive;
+            color: var(--primary);
+            margin-bottom: 0.6rem; /* Adjusted spacing below h1 in slok */
+            font-size: 1.3rem; /* Slightly larger Sloka heading */
+        }
+
+        .input-field {
+            font-family: 'Yakta', sans-serif;
+            background: var(--background); /* Input field background same as body for seamless Neomorphism */
+            border: none;
+            border-radius: 12px; /* More rounded corners for inputs */
+            padding: 1rem 1.2rem; /* Increased input padding */
+            transition: box-shadow 0.3s ease;
+            font-size: 1rem;
+            color: var(--text-dark);
+            box-shadow: inset 3px 3px 6px var(--shadow-dark), /* Slightly stronger inset shadow */
+                inset -3px -3px 6px var(--shadow-light);
+        }
+
+        .input-field::placeholder {
+            font-family: 'Yakta', sans-serif;
+            color: var(--text-light);
+            font-size: 0.95rem; /* Slightly smaller placeholder text */
+        }
+
+        .input-field:focus {
+            outline: none;
+            box-shadow: inset 3px 3px 6px var(--shadow-dark),
+                inset -3px -3px 6px var(--shadow-light),
+                0 0 6px var(--secondary); /* Changed focus outline color to secondary */
+        }
+
+        .submit-btn {
+            font-family: 'Yakta', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--secondary)); /* Adjusted gradient angle */
+            color: white;
+            border: none;
+            padding: 1.2rem 1.6rem; /* Increased button padding */
+            border-radius: 12px; /* More rounded button corners */
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1rem;
+            display: block;
+            width: 100%;
+            text-align: center;
+            box-shadow: 5px 5px 10px var(--shadow-dark), /* Adjusted button shadow */
+                -5px -5px 10px var(--shadow-light);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-4px); /* Increased hover lift effect */
+            box-shadow: 7px 7px 12px var(--shadow-dark), /* Stronger hover shadow */
+                -7px -7px 12px var(--shadow-light);
+        }
+
+        .mt-6.text-center p {
+            font-family: 'Yakta', sans-serif;
+            color: var(--text-light);
+            font-size: 0.95rem; /* Slightly smaller paragraph text */
+        }
+
+        .mt-6.text-center a {
+            font-family: 'Yakta', sans-serif;
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.95rem; /* Slightly smaller link text */
+        }
+
+        .mt-6.text-center a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        label.block.text-gray-700.mb-2.text-sm { /* Style for labels */
+            color: var(--text-dark);
+            font-weight: 500; /* Slightly bolder labels */
+            font-size: 0.9rem; /* Slightly smaller label size */
+            margin-bottom: 0.5rem; /* Reduced label margin */
+        }
+
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+
+<body class="">
+    <div class="ganesha-slok">
+        <h1 style="color: #FF7722;">|| श्री गणेशाय नमः ||</h1>
+        <br>
+        वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>
+        निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
+        <br>
+    </div>
+
+    <div class="sacred-card">
+        <div class="text-center mb-8">
+            <div class="om-symbol">ॐ</div>
+            <h1 class="text-3xl font-bold text-[#FF7722] mb-2">Gnyan Vidya</h1>
+            <p class="text-gray-600" style="color: var(--text-light);">Ancient Wisdom, Modern Growth</p>
+        </div>
+        <form class="space-y-6"> <!-- Slightly increased space between form elements -->
+            <div>
+                <label for="name" class="block text-gray-700 mb-2 text-sm">Name</label>
+                <input type="text" id="name" class="input-field w-full" placeholder="Your Name">
+            </div>
+
+            <div>
+                <label for="email" class="block text-gray-700 mb-2 text-sm">Email</label>
+                <input type="email" id="email" class="input-field w-full" placeholder="your@email.com">
+            </div>
+
+            <div>
+                <label for="password" class="block text-gray-700 mb-2 text-sm">Password</label>
+                <input type="password" id="password" class="input-field w-full" placeholder="Create Password">
+            </div>
+            <div>
+                <label for="confirm_password" class="block text-gray-700 mb-2 text-sm">Confirm Password</label>
+                <input type="password" name="confirm_password" id="confirm_password" class="input-field w-full"
+                    placeholder="Confirm Your Password">
+            </div>
+
+            <button type="submit" class="submit-btn w-full">
+                Begin Your Spiritual Journey 🕉️
+            </button>
+        </form>
+
+        <div class="mt-6 text-center">
+            <p class="">
+                Already on the path?
+                <a href="/login" class="">
+                    Continue Your Journey
+                </a>
+            </p>
+        </div>
+    </div>
+    <script>
+        // Add this to the existing <script> section
+        document.querySelector('form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const password = document.querySelector('#password').value;
+            const confirmPassword = document.querySelector('#confirm_password').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords must match for spiritual harmony! 🕉️');
+                return;
+            }
+
+            try {
+                const formData = {
+                    name: document.querySelector('#name').value,
+                    email: document.querySelector('#email').value,
+                    password: password
+                };
+
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    window.location.href = '/questionnaire';
+                } else {
+                    alert('Please check your details and try again 🙏');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Connection issue. Please try again 🙏');
+            }
+        });
+
+    </script>
+</body>
+
+</html>

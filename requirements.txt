@@ -1,0 +1,13 @@
+Flask==2.3.3
+Werkzeug==2.3.7
+requests==2.31.0
+beautifulsoup4==4.12.2
+python-dotenv==1.0.0
+google-generativeai==0.8.4
+MLB-StatsAPI==1.5.1
+gunicorn==21.2.0
+APScheduler==3.10.4
+concurrent-futures==3.0.5
+uuid==1.30
+secure==0.3.0
+email-validator==2.1.0.post1

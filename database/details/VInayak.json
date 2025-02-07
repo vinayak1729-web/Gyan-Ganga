@@ -1,0 +1,44 @@
+{
+    "username": "VInayak",
+    "submission_date": "2025-02-06 17:02:11",
+    "questions": [
+        {
+            "id": "fan_duration",
+            "answer": "5"
+        },
+        {
+            "id": "favorite_teams",
+            "answer": [
+                "New York Yankees",
+                "Tampa Bay Rays",
+                "Boston Red Sox",
+                "Toronto Blue Jays",
+                "Baltimore Orioles"
+            ]
+        },
+        {
+            "id": "favorite_players",
+            "answer": [
+                "r",
+                "r",
+                "r",
+                "r",
+                "r"
+            ]
+        },
+        {
+            "id": "selected_team",
+            "answer": [
+                "Detroit Tigers"
+            ]
+        },
+        {
+            "id": "favorite_match",
+            "answer": "x vs y"
+        },
+        {
+            "id": "notifications",
+            "answer": "daily"
+        }
+    ]
+}

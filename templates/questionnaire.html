@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Preferences Questionnaire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yakta:wght@400;700&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ja,es,hi,de,fr,ko',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <style>
+        /* Copy CSS from signup page here */
+        :root {
+            --primary: #E67E22;
+            /* Slightly Desaturated Primary */
+            --secondary: #F39C12;
+            /* More Golden Secondary */
+            --accent: #FDEBD0;
+            /* Softer Accent Color */
+            --background: #f8f8fa;
+            /* Very Light Grey Background */
+            --text-dark: #4a4a4a;
+            /* Dark Grey Text */
+            --text-light: #8e8e8e;
+            /* Light Grey Text */
+            --shadow-dark: rgba(0, 0, 0, 0.1);
+            /* Softer Dark Shadow */
+            --shadow-light: rgba(255, 255, 255, 0.8);
+            /* Brighter Light Shadow */
+            --card-bg: rgba(255, 255, 255, 0.9);
+            /* Slightly transparent card background */
+        }
+
+        body {
+            background-color: var(--background);
+            font-family: 'Yakta', sans-serif;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48' fill='none' stroke='%23F39C12' stroke-opacity='0.5'%3E%3Cpath d='M24 4L4 24L24 44L44 24Z' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M24 12L12 24L24 36L36 24' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E");
+            /* Refined Background Art */
+            background-size: 90px;
+            /* Smaller pattern size */
+            background-repeat: repeat;
+        }
+
+        .sacred-card {
+            background: var(--card-bg);
+            /* Use card background variable */
+            border-radius: 24px;
+            /* Slightly more rounded corners */
+            padding: 2.5rem 3.5rem;
+            /* Increased padding for spaciousness */
+            width: 100%;
+            max-width: 520px;
+            /* Slightly wider card */
+            box-shadow: 8px 8px 16px var(--shadow-dark),
+            /* More pronounced shadow */
+            -8px -8px 16px var(--shadow-light);
+        }
+
+        .om-symbol {
+            font-family: 'Yatra One', cursive;
+            font-size: 5rem;
+            /* Slightly larger Om */
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s infinite;
+            margin-bottom: 0.75rem;
+            /* Increased spacing below Om */
+            display: block;
+            text-align: center;
+        }
+
+        .ganesha-slok {
+            font-family: 'Yatra One', cursive;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 1.05rem;
+            /* Slightly larger Shloka text */
+            font-weight: 500;
+            /* Slightly lighter font weight */
+            color: var(--text-dark);
+            background: var(--card-bg);
+            /* Use card background for slok */
+            padding: 1rem 2rem;
+            /* Increased padding for slok */
+            border-radius: 12px;
+            /* More rounded corners for slok */
+            box-shadow: 5px 5px 10px var(--shadow-dark),
+            -5px -5px 10px var(--shadow-light);
+            z-index: 10;
+            margin-bottom: 6rem;
+            /* Further increased gap below shloka */
+        }
+
+        .ganesha-slok h1 {
+            font-family: 'Yatra One', cursive;
+            color: var(--primary);
+            margin-bottom: 0.6rem;
+            /* Adjusted spacing below h1 in slok */
+            font-size: 1.3rem;
+            /* Slightly larger Sloka heading */
+        }
+
+        .input-field {
+            font-family: 'Yakta', sans-serif;
+            background: var(--background);
+            /* Input field background same as body for seamless Neomorphism */
+            border: none;
+            border-radius: 12px;
+            /* More rounded corners for inputs */
+            padding: 1rem 1.2rem;
+            /* Increased input padding */
+            transition: box-shadow 0.3s ease;
+            font-size: 1rem;
+            color: var(--text-dark);
+            box-shadow: inset 3px 3px 6px var(--shadow-dark),
+            /* Slightly stronger inset shadow */
+            inset -3px -3px 6px var(--shadow-light);
+        }
+
+        .input-field::placeholder {
+            font-family: 'Yakta', sans-serif;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            /* Slightly smaller placeholder text */
+        }
+
+        .input-field:focus {
+            outline: none;
+            box-shadow: inset 3px 3px 6px var(--shadow-dark),
+            inset -3px -3px 6px var(--shadow-light),
+            0 0 6px var(--secondary);
+            /* Changed focus outline color to secondary */
+        }
+
+        .submit-btn {
+            font-family: 'Yakta', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            /* Adjusted gradient angle */
+            color: white;
+            border: none;
+            padding: 1.2rem 1.6rem;
+            /* Increased button padding */
+            border-radius: 12px;
+            /* More rounded button corners */
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1rem;
+            display: block;
+            width: 100%;
+            text-align: center;
+            box-shadow: 5px 5px 10px var(--shadow-dark),
+            /* Adjusted button shadow */
+            -5px -5px 10px var(--shadow-light);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-4px);
+            /* Increased hover lift effect */
+            box-shadow: 7px 7px 12px var(--shadow-dark),
+            /* Stronger hover shadow */
+            -7px -7px 12px var(--shadow-light);
+        }
+
+        .mt-6.text-center p {
+            font-family: 'Yakta', sans-serif;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            /* Slightly smaller paragraph text */
+        }
+
+        .mt-6.text-center a {
+            font-family: 'Yakta', sans-serif;
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.95rem;
+            /* Slightly smaller link text */
+        }
+
+        label.block.text-gray-700.mb-2.text-sm {
+            /* Style for labels */
+            color: var(--text-dark);
+            font-weight: 500;
+            /* Slightly bolder labels */
+            font-size: 0.9rem;
+            /* Slightly smaller label size */
+            margin-bottom: 0.5rem;
+            /* Reduced label margin */
+        }
+
+        .question-counter {
+            font-family: 'Bungee', cursive;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            background: rgba(27, 59, 111, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        #container-wrapper {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s forwards;
+        }
+
+        .slide-out {
+            animation: slideOut 0.5s forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translate(-150%, -50%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+
+            to {
+                transform: translate(50%, -50%);
+                opacity: 0;
+            }
+        }
+
+        .modal-overlay {
+            backdrop-filter: blur(3px);
+        }
+
+        /* Translation button styles */
+        #google_translate_element {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 9999;
+            transform: scale(0.85);
+            transform-origin: top right;
+        }
+
+        .goog-te-gadget {
+            font-family: 'Bungee Spice', 'Bungee', sans-serif !important;
+            font-size: 14px !important;
+        }
+
+        .goog-te-gadget-simple {
+            background-color: #ffffff !important;
+            border: 2px solid #000000 !important;
+            padding: 4px 8px !important;
+            border-radius: 4px !important;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8) !important;
+            transition: all 0.2s ease !important;
+            height: 30px !important;
+            display: flex !important;
+            align-items: center !important;
+            width: auto !important;
+            max-width: 150px !important;
+        }
+
+        .goog-te-gadget-simple:hover {
+            transform: translate(-2px, -2px) !important;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.8) !important;
+        }
+
+        /* Dark mode styles for translation button */
+        .dark .goog-te-gadget-simple {
+            background-color: #1a1a1a !important;
+            border-color: #ffd700 !important;
+            color: #ffffff !important;
+            box-shadow: 3px 3px 0 rgba(255, 215, 0, 0.3) !important;
+        }
+
+        .dark .goog-te-gadget-simple:hover {
+            box-shadow: 4px 4px 0 rgba(255, 215, 0, 0.3) !important;
+        }
+
+        .dark .goog-te-gadget-simple img {
+            filter: invert(1) !important;
+        }
+
+        /* Hide unnecessary elements */
+        .goog-te-gadget-icon {
+            display: none !important;
+        }
+
+        .goog-te-menu-value span:nth-child(3),
+        .goog-te-menu-value span:nth-child(5) {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-[#E5F6FF] min-h-screen flex items-center justify-center" style="font-family: 'Bungee', cursive;">
+    <div id="container-wrapper">
+        <!-- Containers will be dynamically inserted here -->
+    </div>
+    <div id="google_translate_element"></div>
+    <template id="question-template">
+        <div class="sacred-card w-full max-w-md p-8 mb-8 slide-in">
+            <h2 class="text-3xl text-center mb-8 text-[#FF7722]">LEARNING PATH</h2>
+            <div class="question-counter text-sm text-center mb-4 text-[#1B3B6F]">
+                Question <span class="current-question">1</span> of <span class="total-questions">8</span>
+            </div>
+            <div class="question-content text-xl font-medium text-[#1B3B6F] mb-6"></div>
+            <form class="question-form space-y-6">
+                <!-- Input elements will be dynamically inserted here -->
+                <button type="submit" class="submit-btn w-full">
+                    NEXT ➡️
+                </button>
+            </form>
+        </div>
+    </template>
+
+    <script>
+        const questions = [
+            {
+                text: 'What is your current education level?',
+                type: 'dropdown',
+                key: 'education_level',
+                options: [
+                    'High School',
+                    'Undergraduate',
+                    'Graduate',
+                    'Professional',
+                    'Self-Learner'
+                ]
+            },
+            {
+                text: 'Select your top 3 areas of learning interest:',
+                type: 'multi-select',
+                key: 'interests',
+                options: [
+                    'Technology & AI',
+                    'Business & Management',
+                    'Arts & Design',
+                    'Science & Research',
+                    'Mathematics',
+                    'History & Culture',
+                    'Language Learning',
+                    'Health & Wellness',
+                    'Personal Development',
+                    'Finance & Investing'
+                ],
+                max: 3
+            },
+            {
+                text: 'What is your programming experience level?',
+                type: 'dropdown',
+                key: 'programming_level',
+                options: [
+                    'Beginner (0-1 years)',
+                    'Intermediate (1-3 years)',
+                    'Advanced (3-5 years)',
+                    'Expert (5+ years)',
+                    'None'
+                ]
+            },
+            {
+                text: 'What are your primary learning goals?',
+                type: 'text',
+                key: 'learning_goals',
+                placeholder: 'e.g., Career advancement, Skill development, Personal enrichment'
+            },
+            {
+                text: 'How much time can you dedicate to learning per week?',
+                type: 'dropdown',
+                key: 'time_commitment',
+                options: [
+                    '0-5 hours',
+                    '5-10 hours',
+                    '10-20 hours',
+                    '20+ hours'
+                ]
+            },
+            {
+                text: 'Which learning environment do you prefer?',
+                type: 'dropdown',
+                key: 'learning_environment',
+                options: [
+                    'Individual study',
+                    'Group discussions',
+                    'Hands-on projects',
+                    'Lectures',
+                    'Online courses'
+                ]
+            },
+            {
+                text: 'How do you typically approach problem-solving? (Select up to 2)',
+                type: 'multi-select',
+                key: 'problem_solving_approach',
+                options: [
+                    'Analytical thinking',
+                    'Creative brainstorming',
+                    'Trial and error',
+                    'Seeking guidance',
+                    'Intuitive approach'
+                ],
+                max: 2
+            },
+            {
+                text: 'What motivates you most in learning?',
+                type: 'dropdown',
+                key: 'learning_motivation',
+                options: [
+                    'Gaining new skills',
+                    'Achieving goals',
+                    'Personal curiosity',
+                    'External recognition',
+                    'Career advancement'
+                ]
+            }
+        ];
+
+        const questionTemplate = document.querySelector('#question-template').content;
+        const containerWrapper = document.querySelector('#container-wrapper');
+        let currentQuestionIndex = 0;
+        let formData = {};
+
+        function renderQuestion(index) {
+            containerWrapper.innerHTML = ''; // Clear previous question
+            const questionData = questions[index];
+            const questionNode = document.importNode(questionTemplate, true);
+
+            // Update question counter
+            questionNode.querySelector('.current-question').textContent = index + 1;
+            questionNode.querySelector('.total-questions').textContent = questions.length;
+
+            // Set question text
+            questionNode.querySelector('.question-content').textContent = questionData.text;
+
+            const form = questionNode.querySelector('.question-form');
+
+            if (questionData.type === 'dropdown') {
+                const select = document.createElement('select');
+                select.name = questionData.key;
+                select.classList.add('input-field', 'w-full'); // Use input-field class from signup page
+
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = `Select your ${questionData.key.replace('_', ' ').toLowerCase()}`;
+                defaultOption.disabled = true;
+                defaultOption.selected = true;
+                select.appendChild(defaultOption);
+
+
+                questionData.options.forEach(option => {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option;
+                    optionElement.textContent = option;
+                    select.appendChild(optionElement);
+                });
+                form.appendChild(select);
+
+            } else if (questionData.type === 'multi-select') {
+                const optionsContainer = document.createElement('div'); // Container for checkboxes
+                optionsContainer.classList.add('space-y-3', 'mb-4'); // Add spacing
+
+                questionData.options.forEach(option => {
+                    const checkboxDiv = document.createElement('div'); // Div for each checkbox and label
+                    checkboxDiv.classList.add('flex', 'items-center');
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.name = questionData.key;
+                    checkbox.value = option;
+                    checkbox.id = `checkbox-${questionData.key}-${option.replace(/\s+/g, '-')}`; // Unique ID
+                    checkbox.classList.add('mr-2', 'form-checkbox', 'h-5', 'w-5', 'text-[#FF7722]', 'border-black', 'focus:ring-0', 'focus:ring-offset-0'); // Tailwind classes and primary color
+
+                    const label = document.createElement('label');
+                    label.htmlFor = `checkbox-${questionData.key}-${option.replace(/\s+/g, '-')}`; // Match htmlFor with checkbox ID
+                    label.textContent = option;
+                    label.classList.add('text-gray-700'); // Tailwind class for label text
+
+                    checkboxDiv.appendChild(checkbox);
+                    checkboxDiv.appendChild(label);
+                    optionsContainer.appendChild(checkboxDiv); // Append checkbox div to options container
+                });
+                form.appendChild(optionsContainer);
+
+
+            } else if (questionData.type === 'text') {
+                const textarea = document.createElement('textarea');
+                textarea.name = questionData.key;
+                textarea.placeholder = questionData.placeholder;
+                textarea.rows = 3;
+                textarea.classList.add('input-field', 'w-full'); // Use input-field class from signup page
+                form.appendChild(textarea);
+            }
+
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                if (questionData.type === 'multi-select') {
+                    const selectedOptions = Array.from(form.querySelectorAll(`input[name="${questionData.key}"]:checked`))
+                        .map(checkbox => checkbox.value);
+                    if (selectedOptions.length > questionData.max) {
+                        alert(`Please select up to ${questionData.max} options.`);
+                        return; // Stop submission if max limit is exceeded
+                    }
+                    formData[questionData.key] = selectedOptions;
+
+                } else {
+                    formData[questionData.key] = form.elements[questionData.key].value;
+                }
+
+
+                if (index < questions.length - 1) {
+                    currentQuestionIndex++;
+                    renderQuestion(currentQuestionIndex);
+                } else {
+                    console.log('Form Data:', formData);
+                    alert('Questionnaire completed! Check console for data.');
+                    // Here you would typically send the formData to a server
+                }
+            });
+
+
+            containerWrapper.appendChild(questionNode);
+        }
+
+        renderQuestion(currentQuestionIndex); // Render the first question on page load
+    </script>
+
+</body>
+
+</html>

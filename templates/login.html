@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gnyan Vidya - Ancient Wisdom, Modern Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #FF7722;
+            --accent-color: #FFA666;
+            --bg-color: #f0f0f0;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Yatra One', cursive;
+        }
+
+        .glass-card {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 10px 10px 20px #d1d1d1, -10px -10px 20px #ffffff;
+            text-align: center;
+            width: 350px;
+        }
+
+        .neo-input {
+            background: #e0e0e0;
+            box-shadow: inset 5px 5px 10px #bebebe,
+                       inset -5px -5px 10px #ffffff;
+            border-radius: 10px;
+            border: none;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .neo-input:focus {
+            outline: none;
+            box-shadow: inset 3px 3px 6px #bebebe,
+                       inset -3px -3px 6px #ffffff;
+        }
+
+        .neo-button {
+            background: var(--primary-color);
+            box-shadow: 5px 5px 10px #bebebe,
+                       -5px -5px 10px #ffffff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .neo-button:hover {
+            box-shadow: 3px 3px 6px #bebebe,
+                       -3px -3px 6px #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .mandala-bg {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,119,34,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 400px 400px;
+            background-position: center;
+            
+        }
+
+        .om-symbol {
+            font-size: 50px;
+            color: #FF7722;
+            font-weight: bold;
+        }
+
+        @keyframes rotateMandala {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .wisdom-quote {
+            font-family: 'Yatra One', cursive;
+            background: linear-gradient(45deg, #FF7722, #FFA666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4 mandala-bg">
+    <div class="glass-card p-8 w-full max-w-md">
+        <div class="ganesha-slok">
+            कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।<br>
+            मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥
+        </div><br>
+        <div class="text-center mb-8">
+            <h1 class="text-4xl om-symbol mb-2">ॐ</h1>
+            <h2 class="text-3xl font-bold mb-2">Gnyan Vidya</h2>
+            <p class="wisdom-quote text-lg">Ancient Wisdom, Modern Growth</p>
+        </div>
+
+        <form class="space-y-6" action="{{ url_for('login') }}" method="POST">
+            <div>
+                <label class="block text-gray-700 mb-2">Username</label>
+                <input type="text" name="username" required class="neo-input w-full">
+            </div>
+
+            <div>
+                <label class="block text-gray-700 mb-2">Password</label>
+                <input type="password" name="password" required class="neo-input w-full">
+            </div>
+
+            <button type="submit" class="neo-button w-full py-3 text-white font-semibold">
+                Begin Your Journey
+            </button>
+        </form>
+
+        <div class="mt-6 text-center">
+            <p class="text-gray-600">
+                New to Gnyan Vidya?
+                <a href="{{ url_for('signup') }}" class="text-[var(--primary-color)] hover:text-[var(--accent-color)]">
+                    Start Your Path
+                </a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+    {
+        "username": "Vinayak",
+        "email": "vinayak.test.001@gmail.com",
+        "password": "123",
+        "signup_date": "2025-02-06 17:01:31"
+    },
+    {
+        "username": "VInayak",
+        "email": "vinayak.test.001@gmail.com",
+        "password": "123",
+        "signup_date": "2025-02-06 18:29:23"
+    },
+    {
+        "username": null,
+        "email": "shindevinayak233@gmail.com",
+        "password": "123",
+        "signup_date": "2025-02-06 18:51:43"
+    }
+]
