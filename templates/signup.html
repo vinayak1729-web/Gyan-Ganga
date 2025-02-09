@@ -229,42 +229,45 @@
     </div>
     <script>
         // Add this to the existing <script> section
-        document.querySelector('form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const password = document.querySelector('#password').value;
-            const confirmPassword = document.querySelector('#confirm_password').value;
-
-            if (password !== confirmPassword) {
-                alert('Passwords must match for spiritual harmony! 🕉️');
-                return;
-            }
-
-            try {
-                const formData = {
-                    name: document.querySelector('#name').value,
-                    email: document.querySelector('#email').value,
-                    password: password
-                };
-
-                const response = await fetch('/signup', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                if (response.ok) {
-                    window.location.href = '/questionnaire';
-                } else {
-                    alert('Please check your details and try again 🙏');
+            document.querySelector('form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+            
+                const password = document.querySelector('#password').value;
+                const confirmPassword = document.querySelector('#confirm_password').value;
+            
+                if (password !== confirmPassword) {
+                    alert('Passwords must match for spiritual harmony! 🕉️');
+                    return;
                 }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Connection issue. Please try again 🙏');
-            }
-        });
+            
+                try {
+                    const formData = {
+                        username: document.querySelector('#name').value,
+                        email: document.querySelector('#email').value,
+                        password: password
+                    };
+            
+                    const response = await fetch('/signup', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+            
+                    const data = await response.json();
+            
+                    if (data.success) {
+                        window.location.href = data.redirect;
+                    } else {
+                        alert(data.error || 'Please check your details and try again 🙏');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Connection issue. Please try again 🙏');
+                }
+            });
+            
 
     </script>
 </body>

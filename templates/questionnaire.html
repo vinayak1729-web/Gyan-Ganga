@@ -62,17 +62,14 @@
 
         .sacred-card {
             background: var(--card-bg);
-            /* Use card background variable */
             border-radius: 24px;
-            /* Slightly more rounded corners */
-            padding: 2.5rem 3.5rem;
-            /* Increased padding for spaciousness */
+            padding: 2.5rem;
             width: 100%;
             max-width: 520px;
-            /* Slightly wider card */
             box-shadow: 8px 8px 16px var(--shadow-dark),
-            /* More pronounced shadow */
-            -8px -8px 16px var(--shadow-light);
+                        -8px -8px 16px var(--shadow-light);
+            margin: 0;
+            position: relative;
         }
 
         .om-symbol {
@@ -227,9 +224,11 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 100%;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 1;
         }
 
         .slide-in {
@@ -242,24 +241,22 @@
 
         @keyframes slideIn {
             from {
-                transform: translate(-150%, -50%);
+                transform: translateX(-150%);
                 opacity: 0;
             }
-
             to {
-                transform: translate(-50%, -50%);
+                transform: translateX(0);
                 opacity: 1;
             }
         }
 
         @keyframes slideOut {
             from {
-                transform: translate(-50%, -50%);
+                transform: translateX(0);
                 opacity: 1;
             }
-
             to {
-                transform: translate(50%, -50%);
+                transform: translateX(150%);
                 opacity: 0;
             }
         }
@@ -327,6 +324,23 @@
         .goog-te-menu-value span:nth-child(5) {
             display: none !important;
         }
+
+
+        @media (max-width: 640px) {
+            .sacred-card {
+                padding: 1.5rem;
+            }
+            
+            #container-wrapper {
+                width: 95%;
+                padding: 10px;
+            }
+        }
+
+        
+
+
+
     </style>
 </head>
 
@@ -530,33 +544,49 @@
 
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
-
+            
+                // Validate and collect form data
                 if (questionData.type === 'multi-select') {
                     const selectedOptions = Array.from(form.querySelectorAll(`input[name="${questionData.key}"]:checked`))
                         .map(checkbox => checkbox.value);
                     if (selectedOptions.length > questionData.max) {
                         alert(`Please select up to ${questionData.max} options.`);
-                        return; // Stop submission if max limit is exceeded
+                        return;
                     }
                     formData[questionData.key] = selectedOptions;
-
                 } else {
                     formData[questionData.key] = form.elements[questionData.key].value;
                 }
-
-
-                if (index < questions.length - 1) {
+            
+                // Check if this is the last question (8th question)
+                if (index === questions.length - 1) {
+                    // Submit all collected data and redirect to login
+                    fetch('/questionnaire', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = '/login';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        window.location.href = '/login';
+                    });
+                } else {
+                    // Move to next question
                     currentQuestionIndex++;
                     renderQuestion(currentQuestionIndex);
-                } else {
-                    console.log('Form Data:', formData);
-                    alert('Questionnaire completed! Check console for data.');
-                    // Here you would typically send the formData to a server
                 }
             });
-
-
+            
             containerWrapper.appendChild(questionNode);
+            
         }
 
         renderQuestion(currentQuestionIndex); // Render the first question on page load

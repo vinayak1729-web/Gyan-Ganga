@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Gurukul - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="{{ period }}">
+    <nav class="nav-bar">
+        <div class="logo">🕉 Virtual Gurukul</div>
+        <div class="nav-links">
+            <a href="/" class="active">Dashboard</a>
+            <a href="/my-gurukul">My Gurukul</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="welcome-section">
+            <h1>नमस्ते (Namaste)</h1>
+            <p class="sanskrit-text">विद्या ददाति विनयम् | Knowledge gives discipline</p>
+        </div>
+
+        <div class="courses-section">
+            <h2>Available Pathshalas (Courses)</h2>
+            <div class="course-grid">
+                {% for course in courses %}
+                <div class="course-card">
+                    <h3>{{ course.title }}</h3>
+                    <p>{{ course.description }}</p>
+                    <div class="course-meta">
+                        <span>Duration: {{ course.duration }}</span>
+                        <span>Level: {{ course.level }}</span>
+                    </div>
+                    <button class="enroll-btn">Begin Journey</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

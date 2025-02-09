@@ -1,0 +1,30 @@
+{
+    "username": "visha",
+    "submission_date": "2025-02-08 13:05:26",
+    "questions": [
+        {
+            "id": "fan_duration",
+            "answer": null
+        },
+        {
+            "id": "favorite_teams",
+            "answer": null
+        },
+        {
+            "id": "favorite_players",
+            "answer": null
+        },
+        {
+            "id": "selected_team",
+            "answer": null
+        },
+        {
+            "id": "favorite_match",
+            "answer": null
+        },
+        {
+            "id": "notifications",
+            "answer": null
+        }
+    ]
+}

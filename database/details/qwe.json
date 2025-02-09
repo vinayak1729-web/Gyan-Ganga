@@ -1,0 +1,44 @@
+{
+    "username": "qwe",
+    "submission_date": "2025-02-08 21:44:43",
+    "questions": [
+        {
+            "id": "education_level",
+            "answer": ""
+        },
+        {
+            "id": "interests",
+            "answer": [
+                "Technology & AI",
+                "Business & Management"
+            ]
+        },
+        {
+            "id": "programming_level",
+            "answer": "Intermediate (1-3 years)"
+        },
+        {
+            "id": "learning_goals",
+            "answer": "dvdf"
+        },
+        {
+            "id": "time_commitment",
+            "answer": "5-10 hours"
+        },
+        {
+            "id": "learning_environment",
+            "answer": "Group discussions"
+        },
+        {
+            "id": "problem_solving_approach",
+            "answer": [
+                "Creative brainstorming",
+                "Seeking guidance"
+            ]
+        },
+        {
+            "id": "learning_motivation",
+            "answer": "External recognition"
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "username": "Vinayak9271",
+    "submission_date": "2025-02-09 15:08:07",
+    "questions": [
+        {
+            "id": "education_level",
+            "answer": "Undergraduate"
+        },
+        {
+            "id": "interests",
+            "answer": [
+                "Technology & AI",
+                "Science & Research",
+                "Mathematics"
+            ]
+        },
+        {
+            "id": "programming_level",
+            "answer": "Beginner (0-1 years)"
+        },
+        {
+            "id": "learning_goals",
+            "answer": "built some new skills , to reach to top mnc , to live a healthy life"
+        },
+        {
+            "id": "time_commitment",
+            "answer": "0-5 hours"
+        },
+        {
+            "id": "learning_environment",
+            "answer": "Individual study"
+        },
+        {
+            "id": "problem_solving_approach",
+            "answer": [
+                "Analytical thinking",
+                "Creative brainstorming"
+            ]
+        },
+        {
+            "id": "learning_motivation",
+            "answer": "Gaining new skills"
+        }
+    ]
+}

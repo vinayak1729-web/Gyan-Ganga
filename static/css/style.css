@@ -1,0 +1,178 @@
+/* Base Styles */
+:root {
+    --primary-color: #FF9933;
+    --secondary-color: #138808;
+    --accent-color: #000080;
+    --text-color: #333;
+    --background-light: #fff9e6;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: var(--background-light);
+    background-image: url('../images/parchment-texture.png');
+    color: var(--text-color);
+}
+
+/* Time-based themes */
+body.morning {
+    background: linear-gradient(to bottom, #ff9966, #fff9e6);
+}
+
+body.midday {
+    background: linear-gradient(to bottom, #fff9e6, #ffcc99);
+}
+
+body.evening {
+    background: linear-gradient(to bottom, #ff9966, #cc6600);
+}
+
+body.night {
+    background: linear-gradient(to bottom, #000033, #000066);
+    color: #fff;
+}
+
+/* Navigation */
+.nav-bar {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.nav-links a.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sanskrit-text {
+    font-style: italic;
+    color: var(--accent-color);
+}
+
+/* Course Cards */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.course-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.enroll-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Timeline */
+.timeline {
+    margin: 2rem 0;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 1.5rem;
+}
+
+.time {
+    min-width: 100px;
+    font-weight: bold;
+}
+
+.activity {
+    margin-left: 1rem;
+}
+
+.log-btn {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Progress Section */
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-links {
+        margin-top: 1rem;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .time {
+        margin-bottom: 0.5rem;
+    }
+}

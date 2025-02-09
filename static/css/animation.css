@@ -1,0 +1,107 @@
+.scene-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Early Morning Scene (4 AM - 8 AM) */
+.scene-brahma-muhurta {
+    background: linear-gradient(to bottom, #1a237e, #4a148c);
+    animation: earlyMorning 20s infinite;
+}
+
+.scene-brahma-muhurta::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../images/stars.png');
+    opacity: 0.6;
+    animation: twinkle 2s infinite;
+}
+
+/* Morning Scene (8 AM - 12 PM) */
+.scene-morning {
+    background: linear-gradient(to bottom, #64b5f6, #bbdefb);
+    animation: morningLight 20s infinite;
+}
+
+/* Afternoon Scene (12 PM - 4 PM) */
+.scene-afternoon {
+    background: linear-gradient(to bottom, #2196f3, #90caf9);
+    animation: afternoonHeat 20s infinite;
+}
+
+/* Evening Scene (4 PM - 8 PM) */
+.scene-evening {
+    background: linear-gradient(to bottom, #ff9800, #ffcc80);
+    animation: eveningGlow 20s infinite;
+}
+
+/* Night Scene (8 PM - 4 AM) */
+.scene-night {
+    background: linear-gradient(to bottom, #1a237e, #311b92);
+    animation: nightSky 20s infinite;
+}
+
+/* Animation Keyframes */
+@keyframes earlyMorning {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.9; }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes morningLight {
+    0% { filter: brightness(0.8); }
+    50% { filter: brightness(1.2); }
+    100% { filter: brightness(0.8); }
+}
+
+/* Nature Elements */
+.birds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../images/birds.png') repeat;
+    animation: birdsFly 20s linear infinite;
+}
+
+.clouds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../images/clouds.png') repeat-x;
+    animation: cloudFloat 30s linear infinite;
+}
+
+.trees {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background: url('../images/trees.png') repeat-x bottom;
+    animation: treeSway 5s ease-in-out infinite;
+}
+
+@keyframes birdsFly {
+    from { background-position: 0 0; }
+    to { background-position: 100% -100%; }
+}
+
+@keyframes cloudFloat {
+    from { background-position: 0; }
+    to { background-position: 100%; }
+}
+
+@keyframes treeSway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(1deg); }
+}

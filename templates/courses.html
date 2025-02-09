@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Courses - Gyan Ganga</title>
+</head>
+<body>
+    <div class="categories">
+        {% for category_id, category in categories.items() %}
+            <div class="category">
+                <h2>{{ category.name }}</h2>
+                {% for subcategory_id, subcategory_name in category.subcategories.items() %}
+                    <div class="subcategory">
+                        <h3>{{ subcategory_name }}</h3>
+                        <div class="courses">
+                            {% for course_id, course in courses.items() %}
+                                {% if course.category == category_id and course.subcategory == subcategory_id %}
+                                    <div class="course-card">
+                                        <h4>{{ course.title }}</h4>
+                                        <p>{{ course.description }}</p>
+                                        <div class="videos">
+                                            {% for video in course.videos %}
+                                                <div class="video">
+                                                    <h5>{{ video.title }}</h5>
+                                                    <p>Likes: {{ video.likes }}</p>
+                                                    <button onclick="likeVideo('{{ course_id }}', '{{ loop.index0 }}')">
+                                                        Like
+                                                    </button>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
